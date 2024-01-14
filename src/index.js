@@ -1,15 +1,24 @@
+// src/index.js
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import { createRoot } from 'react-dom/client'; // Importa createRoot desde "react-dom/client"
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { sendToVercelAnalytics } from './vitals';
 
-ReactDOM.render(
+const client = new ApolloClient({
+  uri: 'https://countries.trevorblades.com/',
+  cache: new InMemoryCache(),
+});
+
+const rootElement = document.getElementById('root');
+
+// Utiliza createRoot en lugar de ReactDOM.render
+const root = createRoot(rootElement);
+
+// Renderiza la aplicación dentro de createRoot
+root.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  </React.StrictMode>
 );
-
-reportWebVitals(sendToVercelAnalytics);

@@ -1,0 +1,117 @@
+/* Estilos para el contenedor principal */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2px;
+  margin-bottom: 30%;
+  position: relative;
+}
+
+/* Estilos para el contenedor del input y botón */
+.search-container {
+  display: flex;
+  flex-direction: column; /* Cambia la dirección a columna */
+  align-items: center; /* Centra los elementos en el eje horizontal */
+  max-width: 400px; /* Puedes ajustar el ancho máximo según tus necesidades */
+  position: relative;
+/* Añade posición relativa al contenedor */
+}
+
+/* Estilos para el input de búsqueda */
+.input-search {
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  padding: 10px;
+  border: 1px solid hsl(241, 95%, 57%);
+  border-radius: 5px;
+  margin-top: -95%;
+  box-sizing: border-box;
+}
+
+h3{
+  
+}
+
+/* Estilos para el botón de búsqueda */
+.search-button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #4312f5;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  /* Agrega una sombra 3D */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Otros estilos para el efecto de hover */
+.search-button:hover {
+  background-color: #5935ff; /* Cambia el color al pasar el ratón */
+  transform: translateY(-2px); /* Simula un efecto de elevación */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08); /* Ajusta la sombra al pasar el ratón */
+}
+
+/* Estilos para la lista de sugerencias */
+.suggestions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 50%; /* Posiciona desde el centro */
+  transform: translateX(-50%); /* Centra el elemento horizontalmente */
+  width: 830px;
+  z-index: 1;
+  display: flex;
+  margin-top: -30px;
+  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan cuando no haya suficiente espacio */
+  justify-content: space-between; /* Distribuye las tarjetas uniformemente */
+}
+
+.suggestions li {
+  flex-basis: calc(16.6667% - 10px); /* Calcula el ancho para que haya seis tarjetas en una fila en pantallas grandes */
+  max-width: calc(16.6667% - 10px); /* Ancho máximo para seis tarjetas en una fila en pantallas pequeñas */
+  background-color: #306be9;
+  border: 1px solid #204080;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden; /* Evita que el contenido desborde del cuadro */
+  margin-bottom: 10px;
+}
+
+.suggestions img {
+  width: 100%;
+  height: auto; /* Para mantener la proporción original de la imagen */
+  border-radius: 8px;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.suggestions img:hover {
+  transform: perspective(600px) rotateY(10deg);
+  filter: brightness(1.2);
+  cursor: pointer;
+}
+
+
+
+.suggestions img:hover {
+  width: 40px; /* Ajusta el ancho al hacer hover */
+  height: 40px; /* Ajusta la altura al hacer hover */
+  cursor: pointer; /* Cambia el cursor al hacer hover para indicar interactividad */
+}
+
+/* Estilos para hacerlo responsive */
+@media (max-width: 768px) {
+  .suggestions {
+    justify-content: center; /* Centra las tarjetas en pantallas pequeñas */
+  }
+
+  .suggestions li {
+    flex-basis: calc(33.3333% - 10px); /* Calcula el ancho para que haya tres tarjetas en una fila en pantallas pequeñas */
+    max-width: calc(33.3333% - 10px); /* Ancho máximo para tres tarjetas en una fila en pantallas pequeñas */
+  }
+  
+}

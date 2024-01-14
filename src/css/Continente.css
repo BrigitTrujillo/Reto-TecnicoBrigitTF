@@ -1,0 +1,85 @@
+/* src/css/Continente.css */
+
+.continent-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.continent {
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  font-family: 'Arial', sans-serif; /* Cambia la fuente según tus preferencias */
+  font-size: 16px; /* Tamaño de la letra */
+  color: #333; /* Color de la letra */
+  background-color: #f0f0f0; /* Color de fondo */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves al pasar el ratón */
+  transform: perspective(500px) rotateX(0deg) rotateY(0deg); /* Efecto 3D inicial */
+}
+
+.continent:hover {
+  background-color: #ddd; /* Cambia el color de fondo al pasar el ratón */
+  transform: perspective(500px) rotateX(-5deg) rotateY(5deg); /* Efecto 3D al pasar el ratón */
+}
+
+.continent.selected {
+  border-color: #3498db;
+}
+
+.selected-continent {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f2f7fa;
+  margin-bottom: 10px;
+}
+
+/* Estilos para la tarjeta del país */
+.country-card {
+  position: relative;
+  border: 1px solid #ccc; /* Borde de la tarjeta */
+  border-radius: 5px; /* Borde redondeado */
+  padding: 10px; /* Espaciado interno */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para un efecto de elevación */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Estilos para el contenido del país dentro de la tarjeta */
+.country {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  font-size: 20px; /* Tamaño de la letra */
+  color: #fffbfb; /* Color de la letra */
+}
+
+/* Agregar punto al hacer clic */
+.country-card:active::after {
+  content: '\2022'; /* Punto en Unicode */
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 24px;
+  color: #3498db; /* Color del punto */
+}
+
+/* Efecto 3D al hacer clic */
+.country-card:active {
+  transform: perspective(500px) rotateX(5deg) rotateY(-5deg);
+}
+
+/* Cambio de color al pasar el ratón */
+.country-card:hover {
+  background-color: #072aee; /* Cambia el color al pasar el ratón */
+}
+
+h2 {
+  font-family: 'Your Formal Font', sans-serif; 
+  font-size: 40px;
+  font-weight: bold;
+  color: #000000;
+  text-shadow: 2px 2px 2px #6e46ff; 
+  margin: 20px auto; /* Centrar el h2 */
+  text-align: center; /* Alinear el texto al centro */
+}
