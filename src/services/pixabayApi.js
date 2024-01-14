@@ -1,6 +1,4 @@
-// pixabayApi.js
 import axios from 'axios';
-
 const PIXABAY_API_KEY = '41804555-652b1cdd5b0192a5a55974dec'; // Tu clave de API
 
 /**
@@ -13,7 +11,7 @@ export const searchImages = async (countryName) => {
     const response = await axios.get('https://pixabay.com/api/', {
       params: {
         key: PIXABAY_API_KEY,
-        q: `${countryName} country`, // Agrega "country" para obtener resultados más específicos
+        q: `${countryName} country`, //"country" para obtener resultados más específicos
         image_type: 'photo',
       },
     });
